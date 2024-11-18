@@ -1,21 +1,10 @@
-import logo from './logo.svg';
-import './App.css';
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import './index.css';
 
-function MyButton() {
-  return (
-    <button>
-      I'm a button
-    </button>
-  );
-}
-
-export default function MyApp() {
-  return (
-    <div>
-      <h1>Welcome to my app</h1>
-      <MyButton />
-    </div>
-  );
+import App from './App';
+export default function Square() {
+  return <button className="square">X</button>;
 }
 
 
