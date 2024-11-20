@@ -10,11 +10,16 @@ function Square({ value, onSquareClick }) {
 }
 // Sets the board
 export default function Board() {
+  const [xIsNext, setXIsNext] = useState(true);
   const [squares, setSquares] = useState(Array(9).fill(null));
   // Handles clicking on squares, marking them with an x
   function handleClick(i) {
     const nextSquares = squares.slice();
-    nextSquares[i] = "X";
+    if (xIsNext) {
+      nextSquares[i] = "X";
+    } else {
+      nextSquares[i] = "O";
+    }
     setSquares(nextSquares);
   }
   return (
