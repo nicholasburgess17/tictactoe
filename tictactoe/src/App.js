@@ -1,5 +1,6 @@
 import "./index.css";
 import { useState } from "react";
+import { square } from "fontawesome";
 // Creates square
 function Square({ value, onSquareClick }) {
   return (
@@ -10,14 +11,21 @@ function Square({ value, onSquareClick }) {
 }
 // Sets the board
 export default function Board() {
-  
   const [xIsNext, setXIsNext] = useState(true);
   const [squares, setSquares] = useState(Array(9).fill(null));
+  //let winner know they won
+  const winner = calculateWinner(square)
+  let status;
+  if (winner) {
+    status = "Winner: " + winner;
+  } else {
+    status = "Next player: " + (xIsNext ? "X" : "O");
+  }
   // Handles clicking on squares, marking them with an x
   function handleClick(i) {
     const nextSquares = squares.slice();
     //determines if current swuare has already been used
-    if (squares[i]) {
+    if (squares[i] || calculateWinner(squares)) {
     return;
     }
     //switches turns 
@@ -31,6 +39,7 @@ export default function Board() {
   }
   return (
     <>
+    <div className="status">{status}</div>
       <div className="board-row">
         <Square value={squares[0]} onSquareClick={() => handleClick(0)} />
         <Square value={squares[1]} onSquareClick={() => handleClick(1)} />
