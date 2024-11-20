@@ -15,9 +15,11 @@ export default function Board() {
   // Handles clicking on squares, marking them with an x
   function handleClick(i) {
     const nextSquares = squares.slice();
+    //determines if current swuare has already been used
     if (squares[i]) {
     return;
     }
+    //switches turns 
     if (xIsNext) {
       nextSquares[i] = "X";
     } else {
