@@ -15,12 +15,16 @@ export default function Board() {
   // Handles clicking on squares, marking them with an x
   function handleClick(i) {
     const nextSquares = squares.slice();
+    if (squares[i]) {
+    return;
+    }
     if (xIsNext) {
       nextSquares[i] = "X";
     } else {
       nextSquares[i] = "O";
     }
     setSquares(nextSquares);
+    setXIsNext(!xIsNext);
   }
   return (
     <>
