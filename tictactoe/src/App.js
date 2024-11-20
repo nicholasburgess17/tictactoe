@@ -24,7 +24,7 @@ export default function Board() {
   // Handles clicking on squares, marking them with an x
   function handleClick(i) {
     const nextSquares = squares.slice();
-    //determines if current swuare has already been used
+    //determines if current square has already been used
     if (squares[i] || calculateWinner(squares)) {
     return;
     }
