@@ -1,5 +1,6 @@
 import "./index.css";
 import { useState } from "react";
+// Creates square
 function Square({ value, onSquareClick }) {
   return (
     <button className="square" onClick={onSquareClick}>
@@ -7,8 +8,10 @@ function Square({ value, onSquareClick }) {
     </button>
   );
 }
+// Sets the board
 export default function Board() {
   const [squares, setSquares] = useState(Array(9).fill(null));
+  // Handles clicking on squares, marking them with an x
   function handleClick(i) {
     const nextSquares = squares.slice();
     nextSquares[i] = "X";
